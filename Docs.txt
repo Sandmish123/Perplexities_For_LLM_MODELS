@@ -1,0 +1,81 @@
+Documentation: GPT-2 and GPT-Neo Perplexity Analysis
+
+Project Overview
+    This project, created by Sandeep Mishra, evaluates the perplexity of GPT-2 and GPT-Neo models on the Wikitext-2 dataset. It also measures the impact of minor text modifications, such as replacing all instances of "the" with "teh." The results are visualized using histograms.
+
+Features
+    Supports GPT-2 and GPT-Neo models for perplexity analysis.
+    Loads Wikitext-2 dataset for testing.
+    Computes perplexity scores using pre-trained models.
+    Compares original vs. modified text perplexity.
+    Same execution of GPT-Neo evaluation as for GPT2.
+    Generates visualizations comparing perplexity distributions.
+
+Dependencies
+    This project relies on the following libraries:
+    torch
+    numpy
+    matplotlib
+    transformers
+    datasets
+    pandas
+
+
+Code Structure
+
+1. Loading Pre-trained Models
+    load_model_and_tokenizer_for_gpt2(model_name="gpt2")
+    Loads GPT-2 model and tokenizer from Hugging Face.
+    Returns the tokenizer and model.
+
+    load_model_and_tokenizer_for_gpt_neo(model_name="EleutherAI/gpt-neo-1.3B")
+    Loads GPT-Neo model and tokenizer from Hugging Face.
+    Returns the tokenizer and model.
+    
+2. Loading Dataset
+    load_wikitext2(split="test")
+    Loads the Wikitext-2 dataset.
+    Cleans and filters the dataset.
+    Returns the top 10 samples.
+
+3. Computing Perplexity
+    compute_perplexity(model, tokenizer, text_samples).
+    Computes perplexity scores for given text samples.
+    Returns a list of perplexity scores.
+
+    compute_perplexity_for_neo(model_neo, tokenizer_for_neo, text_samples_for_neo).
+    Similar to compute_perplexity, but optimized for GPT-Neo.
+
+4. Perplexity for Modified Text
+    compute_perplexity_for_modified_text(model, tokenizer, text_samples)
+    Computes perplexity using the provided model and tokenizer.
+    Returns modified perplexity scores.
+    
+    Similar to compute_perplexity_for_modified_text, but optimized for GPT-Neo.
+
+5. Visualization
+    plot_perplexity(perplexities, title="Perplexity Distribution")
+    Plots a histogram of perplexity scores.
+    Compares original vs. modified perplexity for both models in a 2x2 grid.
+    plot_perplexity_comparison(original_perplexities, modified_perplexities).
+
+    Similar to plot_perplexity_comparison, but optimized for GPT-Neo.
+
+
+Nutshell
+
+    1. Loads GPT-2 model and dataset.
+    2. Computes perplexity for original text.
+    3. Computes perplexity for modified text.
+    4. Runs GPT-Neo perplexity analysis.
+    5. Repeat the process.
+    6. Plots perplexity comparison for both models.
+
+Notes
+    GPT-Neo takes longer to download and execute due to its size.
+    Modified text analysis helps understand how minor changes impact perplexity.
+
+Acknowledgment
+    Sandeep Mishra created this project as part of a research task on language model perplexity evaluation.
+    Thank you for exploring this project! Have a great day!.
+
